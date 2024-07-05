@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcul de l'Intérêt Immobilier</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Inclure Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Inclure Animate.css pour les animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <header class="bg-dark text-white text-center py-5">
+        <h1 class="animate__animated animate__fadeInDown">Calcul de l'Intérêt Immobilier</h1>
+        <p class="animate__animated animate__fadeInUp">Évaluez facilement la rentabilité de vos investissements immobiliers</p>
+    </header>
+    <main class="container my-4">
+        <section class="mb-4">
+            <h2 class="text-center">Entrée des données</h2>
+            <form id="property-form" class="animate__animated animate__fadeInLeft">
+                <div class="form-group">
+                    <label for="property-name">Nom du bien :</label>
+                    <input type="text" id="property-name" class="form-control" placeholder="Entrez le nom du bien" required>
+                </div>
+                <div class="form-group">
+                    <label for="property-price">Prix du bien :</label>
+                    <input type="number" id="property-price" class="form-control" placeholder="Entrez le prix du bien" required>
+                </div>
+                <div class="form-group">
+                    <label for="property-surface">Surface (m²) :</label>
+                    <input type="number" id="property-surface" class="form-control" placeholder="Entrez la surface du bien" required>
+                </div>
+                <div class="form-group">
+                    <label for="property-location">Localisation :</label>
+                    <input type="text" id="property-location" class="form-control" placeholder="Entrez la localisation du bien" required>
+                </div>
+                <div class="form-group">
+                    <label for="property-travaux">Travaux nécessaires :</label>
+                    <select id="property-travaux" class="form-control">
+                        <option value="oui">Oui</option>
+                        <option value="non">Non</option>
+                    </select>
+                </div>
+                <div class="form-group" id="cost-travaux-group" style="display: none;">
+                    <label for="property-cost-travaux">Coût des travaux :</label>
+                    <input type="number" id="property-cost-travaux" class="form-control" placeholder="Entrez le coût des travaux">
+                </div>
+                <div class="form-group">
+                    <label for="property-loyer">Loyer mensuel :</label>
+                    <input type="number" id="property-loyer" class="form-control" placeholder="Entrez le loyer mensuel prévu" required>
+                </div>
+                <button type="button" class="btn btn-primary btn-block" onclick="calculate()">Calculer</button>
+            </form>
+        </section>
+        <section class="mt-4">
+            <h2 class="text-center">Résultats</h2>
+            <div id="results" class="p-3 border rounded animate__animated animate__fadeInRight">
+                <!-- Les résultats seront affichés ici -->
+            </div>
+        </section>
+        <section class="mt-4">
+            <h2 class="text-center">Design</h2>
+            <div class="design-image text-center">
+                <img src="Design sans titre.png" alt="Design" class="img-fluid animate__animated animate__zoomIn">
+            </div>
+        </section>
+    </main>
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Calcul de l'Intérêt Immobilier. Tous droits réservés.</p>
+    </footer>
+    <script src="script.js"></script>
+    <!-- Inclure Bootstrap JS et dépendances -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
