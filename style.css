@@ -1,0 +1,39 @@
+/* script.js */
+document.getElementById('property-travaux').addEventListener('change', function() {
+    const travaux = this.value;
+    const costTravauxGroup = document.getElementById('cost-travaux-group');
+    if (travaux === 'oui') {
+        costTravauxGroup.style.display = 'block';
+    } else {
+        costTravauxGroup.style.display = 'none';
+    }
+});
+
+function calculate() {
+    const name = document.getElementById('property-name').value;
+    const price = parseFloat(document.getElementById('property-price').value);
+    const surface = parseFloat(document.getElementById('property-surface').value);
+    const location = document.getElementById('property-location').value;
+    const travaux = document.getElementById('property-travaux').value === 'oui';
+    const costTravaux = travaux ? parseFloat(document.getElementById('property-cost-travaux').value) : 0;
+    const loyerMensuel = parseFloat(document.getElementById('property-loyer').value);
+
+    // Calculer le coût total du projet
+    const totalOperationCost = price + costTravaux;
+
+    // Calculer le rendement locatif
+    const rentalIncomePerYear = loyerMensuel * 12;
+    const rentalYield = (rentalIncomePerYear / totalOperationCost) * 100;
+
+    // Calculer le bénéfice à la revente
+    const appreciationRate = 0.20; // Exemple d'appréciation de 20%
+    const resaleValue = totalOperationCost * (1 + appreciationRate);
+    const resaleProfit = resaleValue - totalOperationCost;
+
+    // Afficher les résultats
+    document.getElementById('results').innerHTML = `
+        <h3>Nom du bien : ${name}</h3>
+        <p><strong>Coût total de l'opération :</strong> ${totalOperationCost.toFixed(2)} €</p>
+        <p><strong>Revenu locatif annuel total :</strong> ${rentalIncomePerYear.toFixed(2)} €</p>
+        <p><strong>Rendement locatif :</strong> ${rentalYield.toFixed(2)} %</p>
+        <p><strong>Béné
